@@ -4,9 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var models = require('./model');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+
+var Movie = mongoose.model('Movie');
 
 var app = express();
 
@@ -24,6 +28,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+
+app.post('/mongo/insert', function(req, res){
+  var name = req.body.name;
+  var desc = req.body.desc;
+  var rating = req.body.rating;
+  var release = req.body.date;
+  var stars = req.body.stars;
+  var stars_array = stars.split(',');
+
+  var movie = new Movie();
+  movie.name = name;
+  movie.description = desc;
+  movie.rating = rating;
+  movie.release = release;
+  movie.actors = stars_array;
+
+  movie.save(function(err, movie){
+    if (err){res.status(500).send(err);}
+    res.json(movie);
+  });
+
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

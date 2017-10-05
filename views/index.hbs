@@ -1,2 +1,8 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<form action="/mongo/insert" method="post">
+  Movie Name: <input name="name"/></br>
+  <textarea name="desc"></textarea></br>
+  Rating: <input type="number" name="rating"/></br>
+  Stars: <input name="stars"/></br>
+  Release Date: <input type="date" name="date"/></br>
+  <input type="submit"/>
+</form>
