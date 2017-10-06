@@ -26,7 +26,7 @@ router.post('/mongo/updateOne',function(req,res){
    var desc=req.body.desc;
    console.log(name);
    var Movie = mongoose.model('Movie', Movies);
-   Movie.findOneupdateOne({name:name},{$set:{description:desc}},function(err, result) {
+   Movie.findOneandUpdate({name:name},{$set:{description:desc}},function(err, result) {
    console.log(result);
    res.json(result);
 });
