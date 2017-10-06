@@ -1,42 +1,58 @@
-<h3>Insert a Movie</h3> 
-<form action="/mongo/insert" method="post">    
+<div class="tabs is-large">
+  <ul>
+      <li id="tabinsert" class="is-active"><a>Insert</a></li>
+      <li id="tabupdateOne"><a>Update One</a></li>
+      <li id="tabupdateMany"><a>Update Many</a></li>
+      <li id="tabfindOne"><a>Find One</a></li>
+      <li id="tabfindMany"><a>Find Many</a></li>
+      <li id="tabdelete"><a>Delete</a></li>  
+  </ul>
+</div>
+
+<div class="container">
+<div id="insert">
+<h3 class="title">Insert a Movie</h3>    
   Movie Name: <input name="name"/></br>
-  <textarea name="desc"></textarea></br>
+  Description: <textarea name="desc"></textarea></br>
   Rating: <input type="number" name="rating"/></br>
   Stars: <input name="stars"/></br>
   Release Date: <input type="date" name="date"/></br>
-  <input type="submit"/>
-</form>
+<button class="button is-primary" id="insertButton"> Insert Movie </button>
+</div>
 
+<div style="display:none" id="updateOne">
 <h3>Update movie description</h3>
-<form action="/mongo/updateOne" method="post">
   Movie Name: <input name="name"/></br>
-  <textarea name="desc"></textarea></br>
-  <input type="submit"/>
-</form>
+  Description: <textarea name="desc"></textarea></br>
+  <button class="button is-primary" id="updateOneButton"> Update Movie </button>
+</div>
 
+<div style="display:none" id="update">
 <h3>Update ratings</h3>
-<form action="/mongo/update" method="post">
   Rating: <input type="number" name="rating"/></br>
   Star: <input name="star"/></br>
-  <input type="submit"/>
-</form>
+  <button class="button is-primary" id="updateButton"> Update all Movies </button>
+</div>
 
+<div style="display:none" id="findOne">
 <h3>Find movie by name</h3>
-<form action="/mongo/findone" method="get">
   Movie Name: <input name="name"/></br>
-  <input type="submit"/>
-</form>
+  <button class="button is-primary" id="findOneButton">Find Movie</button>
+</div>
 
+<div style="display:none" id="findall">
 <h3>Find movies by ratings</h3>
-<form action="/mongo/findall" method="get">
   Rating(Greater than): <input type="number" name="rating"/></br>
-  <input type="submit"/>
-</form>
+  <button class="button is-primary" id="findManyButton">Find Movies</button>
+</div>
 
+<div style="display:none" id="delete">
 <h3>Delete a Movie</h3>
-<form action="/mongo/delete" method="get">
   Movie Name: <input name="name"/></br>
-  <input type="submit"/>
-</form>
+  <button class="button is-primary" id="deleteButton">Delete Movie</button>
+</div>
+
+<div id="output"></div>
+</div>
+
 
