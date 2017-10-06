@@ -1,4 +1,5 @@
-<form action="/mongo/insert" method="post">
+<h3>Insert a Movie</h3> 
+<form action="/mongo/insert" method="post">    
   Movie Name: <input name="name"/></br>
   <textarea name="desc"></textarea></br>
   Rating: <input type="number" name="rating"/></br>
@@ -6,3 +7,36 @@
   Release Date: <input type="date" name="date"/></br>
   <input type="submit"/>
 </form>
+
+<h3>Update movie description</h3>
+<form action="/mongo/updateOne" method="post">
+  Movie Name: <input name="name"/></br>
+  <textarea name="desc"></textarea></br>
+  <input type="submit"/>
+</form>
+
+<h3>Update ratings</h3>
+<form action="/mongo/update" method="post">
+  Rating: <input type="number" name="rating"/></br>
+  Star: <input name="star"/></br>
+  <input type="submit"/>
+</form>
+
+<h3>Find movie by name</h3>
+<form action="/mongo/findone" method="get">
+  Movie Name: <input name="name"/></br>
+  <input type="submit"/>
+</form>
+
+<h3>Find movies by ratings</h3>
+<form action="/mongo/findall" method="get">
+  Rating(Greater than): <input type="number" name="rating"/></br>
+  <input type="submit"/>
+</form>
+
+<h3>Delete a Movie</h3>
+<form action="/mongo/delete" method="get">
+  Movie Name: <input name="name"/></br>
+  <input type="submit"/>
+</form>
+
